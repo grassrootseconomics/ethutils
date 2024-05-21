@@ -9,7 +9,7 @@ import (
 )
 
 func TestProvider_TokensBalance(t *testing.T) {
-	p := NewProvider("https://api.tatum.io/v3/blockchain/node/celo-mainnet", CeloMainnet)
+	p := NewProvider("https://forno.celo.org", CeloMainnet)
 
 	tokens := []common.Address{
 		w3.A("0x02cc0715E844a45bA56Ad391D92DCd6537315177"),

@@ -10,7 +10,7 @@ import (
 )
 
 func TestProvider_SimulateRevertedTx(t *testing.T) {
-	p := NewProvider("https://api.tatum.io/v3/blockchain/node/celo-mainnet", CeloMainnet)
+	p := NewProvider("https://forno.celo.org", CeloMainnet)
 
 	type args struct {
 		txHash      common.Hash
@@ -42,6 +42,7 @@ func TestProvider_SimulateRevertedTx(t *testing.T) {
 			if got != tt.want {
 				t.Errorf("Provider.SimulateRevertedTx() = %v, want %v", got, tt.want)
 			}
+			t.Log(got)
 		})
 	}
 }

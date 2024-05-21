@@ -1,6 +1,7 @@
 # ethutils
 
 [![Go test](https://github.com/grassrootseconomics/ethutils/actions/workflows/test.yaml/badge.svg)](https://github.com/grassrootseconomics/ethutils/actions/workflows/test.yaml)
+![GitHub Tag](https://img.shields.io/github/v/tag/grassrootseconomics/ethutils)
 [![Go Reference](https://pkg.go.dev/badge/github.com/grassrootseconomics/ethutils.svg)](https://pkg.go.dev/github.com/grassrootseconomics/ethutils)
 
 
@@ -12,7 +13,7 @@ Features:
 * Gas transfers
 * Smart contract interactions
 * Address conversion/parsing utilities
-* Grassroots Ecomonics [address](https://software.grassecon.org/addresses) loaders
+* Grassroots Economics [address](https://software.grassecon.org/addresses) loaders
 * Dump reverted tx reason
 * Batch balances scanner
 
