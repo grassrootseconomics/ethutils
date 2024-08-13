@@ -10,6 +10,8 @@ import (
 )
 
 func TestProvider_SimulateRevertedTx(t *testing.T) {
+	t.Skip("requires archive node")
+
 	p := NewProvider("https://forno.celo.org", CeloMainnet)
 
 	type args struct {
