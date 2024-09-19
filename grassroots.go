@@ -134,7 +134,7 @@ func (p *Provider) GetGESmartContracts(ctx context.Context, registries []string)
 }
 
 func (p *Provider) getAllTokensFromTokenIndex(ctx context.Context, tokenIndex common.Address) ([]common.Address, error) {
-	var tokenIndexEntryCount big.Int
+	var tokenIndexEntryCount *big.Int
 
 	if err := p.Client.CallCtx(
 		ctx,

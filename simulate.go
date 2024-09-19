@@ -14,7 +14,7 @@ import (
 // SimulateRevertedTx attempts to simulate a reverted tx and dump its revert reason
 func (p *Provider) SimulateRevertedTx(ctx context.Context, txHash common.Hash, blockNumber *big.Int) (string, error) {
 	var (
-		tx     types.Transaction
+		tx     *types.Transaction
 		output []byte
 	)
 
@@ -25,7 +25,7 @@ func (p *Provider) SimulateRevertedTx(ctx context.Context, txHash common.Hash, b
 		return "", err
 	}
 
-	from, err := types.Sender(p.Signer, &tx)
+	from, err := types.Sender(p.Signer, tx)
 	if err != nil {
 		return "", err
 	}

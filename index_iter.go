@@ -20,7 +20,7 @@ type BatchIterator struct {
 const defaultBatchSize = 500
 
 func (p *Provider) NewBatchIterator(ctx context.Context, index common.Address) (*BatchIterator, error) {
-	var entryCount big.Int
+	var entryCount *big.Int
 
 	if err := p.Client.CallCtx(
 		ctx,
@@ -32,7 +32,7 @@ func (p *Provider) NewBatchIterator(ctx context.Context, index common.Address) (
 	return &BatchIterator{
 		provider:     p,
 		index:        index,
-		entryCount:   &entryCount,
+		entryCount:   entryCount,
 		currentIndex: 0,
 		batchSize:    defaultBatchSize,
 	}, nil
