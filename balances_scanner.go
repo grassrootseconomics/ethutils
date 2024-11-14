@@ -19,7 +19,7 @@ type (
 )
 
 const (
-	BalanceScannerContractAddress = "0x7617EEB559D1dF0423a18F0F8D92c608261C026C"
+	BalanceScannerContractAddress = "0xF62107c53a5b18646E823a21ed531ED934B1CE9E"
 )
 
 func (p *Provider) TokensBalance(ctx context.Context, owner common.Address, tokenAddresses []common.Address) (TokenBalances, error) {

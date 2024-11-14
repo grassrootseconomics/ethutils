@@ -1,3 +1,4 @@
 covprofile
 .vscode
 __debug*
+**/**.bin
