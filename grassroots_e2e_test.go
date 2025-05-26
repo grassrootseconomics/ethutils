@@ -6,6 +6,7 @@ import (
 )
 
 func TestGrassroots_RegistryMap(t *testing.T) {
+	t.Skip("This test requires a live uncapped Celo node to run against. It is not suitable for CI.")
 	p := NewProvider("https://forno.celo.org", CeloMainnet)
 
 	rMap, err := p.RegistryMap(context.Background(), SarafuNetworkRegistry)
@@ -16,6 +17,7 @@ func TestGrassroots_RegistryMap(t *testing.T) {
 }
 
 func TestGrassroots_GetGESmartContracts(t *testing.T) {
+	t.Skip("This test requires a live uncapped Celo node to run against. It is not suitable for CI.")
 	p := NewProvider("https://forno.celo.org", CeloMainnet)
 
 	aMap, err := p.GetGESmartContracts(context.Background(), []string{
