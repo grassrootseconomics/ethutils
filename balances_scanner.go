@@ -29,10 +29,16 @@ func (p *Provider) TokensBalance(ctx context.Context, owner common.Address, toke
 		tokensBalanceFunc = w3.MustNewFunc("tokensBalance(address,address[])", "(bool success, bytes data)[]")
 	)
 
+	// Use custom address if set, otherwise use the default
+	contractAddress := p.BalanceScannerContractAddress
+	if contractAddress == "" {
+		contractAddress = BalanceScannerContractAddress
+	}
+
 	err := p.Client.CallCtx(
 		ctx,
 		eth.CallFunc(
-			w3.A(BalanceScannerContractAddress),
+			w3.A(contractAddress),
 			tokensBalanceFunc,
 			owner,
 			tokenAddresses,

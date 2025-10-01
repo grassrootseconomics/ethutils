@@ -11,8 +11,9 @@ type (
 	Option func(c *Provider)
 
 	Provider struct {
-		Client *w3.Client
-		Signer types.Signer
+		Client                        *w3.Client
+		Signer                        types.Signer
+		BalanceScannerContractAddress string
 	}
 )
 
@@ -25,6 +26,12 @@ func WithSigner(signer types.Signer) Option {
 func WithClient(w3Client *w3.Client) Option {
 	return func(p *Provider) {
 		p.Client = w3Client
+	}
+}
+
+func WithBalanceScannerAddress(address string) Option {
+	return func(p *Provider) {
+		p.BalanceScannerContractAddress = address
 	}
 }
 
