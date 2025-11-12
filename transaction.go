@@ -6,6 +6,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/lmittmann/w3"
 )
 
 type (
@@ -74,6 +75,25 @@ func (p *Provider) SignContractPublishTx(privateKey *ecdsa.PrivateKey, txData Co
 		Gas:       txData.GasLimit,
 		GasFeeCap: txData.GasFeeCap,
 		GasTipCap: txData.GasTipCap,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return tx, nil
+}
+
+func (p *Provider) SignContractExecutionTxWithcKES(privateKey *ecdsa.PrivateKey, txData ContractExecutionTxOpts) (*types.Transaction, error) {
+	cKES := w3.A("0x456a3D042C0DbD3db53D5489e98dFb038553B0d0")
+
+	tx, err := types.SignNewTx(privateKey, p.Signer, &types.CeloDynamicFeeTxV2{
+		Data:        txData.InputData,
+		Nonce:       txData.Nonce,
+		Gas:         txData.GasLimit,
+		GasFeeCap:   txData.GasFeeCap,
+		GasTipCap:   txData.GasTipCap,
+		FeeCurrency: &cKES,
+		To:          &txData.ContractAddress,
 	})
 	if err != nil {
 		return nil, err
