@@ -1,11 +1,11 @@
 module github.com/grassrootseconomics/ethutils
 
-go 1.24
+go 1.24.0
 
 require (
 	github.com/ethereum/go-ethereum v1.15.11
 	github.com/lmittmann/w3 v0.19.5
-	golang.org/x/crypto v0.38.0
+	golang.org/x/crypto v0.45.0
 )
 
 require (
@@ -29,7 +29,7 @@ require (
 	github.com/tklauser/numcpus v0.10.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	golang.org/x/sync v0.14.0 // indirect
-	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
 	golang.org/x/time v0.11.0 // indirect
 	rsc.io/tmplfunc v0.0.3 // indirect
 )
