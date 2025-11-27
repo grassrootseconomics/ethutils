@@ -20,6 +20,7 @@ type (
 
 	GasTransferTxOpts struct {
 		To        common.Address
+		InputData []byte
 		Value     *big.Int
 		GasFeeCap *big.Int
 		GasTipCap *big.Int
@@ -54,9 +55,10 @@ func (p *Provider) SignContractExecutionTx(privateKey *ecdsa.PrivateKey, txData 
 func (p *Provider) SignGasTransferTx(privateKey *ecdsa.PrivateKey, txData GasTransferTxOpts) (*types.Transaction, error) {
 	tx, err := types.SignNewTx(privateKey, p.Signer, &types.DynamicFeeTx{
 		Value:     txData.Value,
+		Data:      txData.InputData,
 		To:        &txData.To,
 		Nonce:     txData.Nonce,
-		Gas:       21000,
+		Gas:       25000,
 		GasFeeCap: txData.GasFeeCap,
 		GasTipCap: txData.GasTipCap,
 	})

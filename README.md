@@ -16,7 +16,8 @@ Features:
 * Grassroots Economics [address](https://software.grassecon.org/addresses) loaders
 * Dump reverted tx reason
 * Batch balances scanner
-* Index iterator
+* Index scanner
+* Divvi support
 
 ## Installation
 

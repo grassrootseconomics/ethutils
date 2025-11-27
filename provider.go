@@ -2,6 +2,8 @@ package ethutils
 
 import (
 	"math/big"
+	"net/http"
+	"time"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
@@ -16,6 +18,7 @@ type (
 		Signer                        types.Signer
 		BalanceScannerContractAddress string
 		DivviConsumerAddress          common.Address
+		DivviClient                   *http.Client
 	}
 )
 
@@ -40,6 +43,9 @@ func WithBalanceScannerAddress(address string) Option {
 func WithDivviConsumerAddress(address string) Option {
 	return func(p *Provider) {
 		p.DivviConsumerAddress = w3.A(address)
+		p.DivviClient = &http.Client{
+			Timeout: time.Second * 10,
+		}
 	}
 }
 
