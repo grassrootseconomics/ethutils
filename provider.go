@@ -3,6 +3,7 @@ package ethutils
 import (
 	"math/big"
 
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/lmittmann/w3"
 )
@@ -14,6 +15,7 @@ type (
 		Client                        *w3.Client
 		Signer                        types.Signer
 		BalanceScannerContractAddress string
+		DivviConsumerAddress          common.Address
 	}
 )
 
@@ -32,6 +34,12 @@ func WithClient(w3Client *w3.Client) Option {
 func WithBalanceScannerAddress(address string) Option {
 	return func(p *Provider) {
 		p.BalanceScannerContractAddress = address
+	}
+}
+
+func WithDivviConsumerAddress(address string) Option {
+	return func(p *Provider) {
+		p.DivviConsumerAddress = w3.A(address)
 	}
 }
 
